@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:vjezbe2_app/models/Proizvodi.dart';
 import 'dart:convert';
 import 'package:vjezbe2_app/pages/Login.dart';
 import 'package:vjezbe2_app/pages/Loading.dart';

@@ -1,29 +1,33 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 
 class Proizvodi {
-    int proizvodId;
+    final int proizvodId;
     final String naziv;
     final String cijena;
-    final String slika;
+    final List<int> slika;
 
     Proizvodi({
+        this.proizvodId,
         this.naziv,
         this.cijena,
         this.slika
     });
-    
+
     factory Proizvodi.fromJson(Map<String, dynamic> json){
+        String stringByte = json["slika"] as String;
+        List<int>bytes=base64.decode(stringByte);
         return Proizvodi(
-        naziv: json["naziv"],
-        cijena: json["cijena"].toString(),
-        slika: json["slika"]
+            proizvodId:int.parse(json["proizvodId"].toString()),
+            naziv: json["naziv"],
+            cijena: json["cijena"].toString(),
+            slika: bytes
         );
     }
 
     Map<String, dynamic> toJson() => {
+        "proizvodId": proizvodId,
         "naziv": naziv,
         "cijena": cijena,
-        "slika":slika
+        "slika": slika
     };
 }

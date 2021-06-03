@@ -13,19 +13,26 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Sidemenu'),
+        backgroundColor: Colors.amber[700],
       ),
       drawer: Drawer(
         child: ListView(
           children: [
-            DrawerHeader(child: Text('eProdaja'),
+            DrawerHeader(child: Center(child: Text('eProdaja', style: TextStyle(fontSize: 20, color: Colors.white),)),
             decoration: BoxDecoration(
-              color: Colors.blue
+              color: Colors.amber[700]
             ),
             ),
             ListTile(
               title: Text('Proizvodi'),
-              onTap: () async{
+              onTap: () {
                     Navigator.of(context).pushNamed('/products');
+              },
+            ),
+            ListTile(
+              title: Text('Moja korpa'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/orders');
               },
             )
           ],
